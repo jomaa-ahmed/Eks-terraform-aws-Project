@@ -46,7 +46,7 @@ aws eks --region <your-region> update-kubeconfig --name <cluster-name>
 Once the EKS cluster was up and running, I accessed the **OpenTelemetry Demo application**:
 
 ### **Homepage Preview**
-![Homepage](./1.png)
+![Homepage](./devops docs screen/1.png)
 
 The homepage of the OpenTelemetry demo application was accessible at:
 ```
