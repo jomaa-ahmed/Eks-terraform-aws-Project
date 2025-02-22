@@ -11,6 +11,7 @@ The project demonstrates **Infrastructure as Code (IaC)**, **containerization**,
 - Implement **containerized services** using **Docker & Kubernetes**
 - Enable **monitoring & observability** using OpenTelemetry
 - Use **multi-stage Docker builds** for optimized security & efficiency
+- Deploy an **Ingress Controller for advanced traffic routing**
 
 ## ⚙️ Installation & Setup
 ### **Prerequisites**
@@ -70,35 +71,82 @@ docker compose up -d
 I built the backend service using **Golang** and implemented a **multi-stage Docker build** for efficiency.
 
 #### **Dockerfile for Golang Service**
-```dockerfile
-FROM golang:1.22-alpine AS builder
-WORKDIR /usr/src/app
-COPY . .
-RUN go mod download
-RUN go build -o /go/bin/product-catalog .
-
-FROM alpine AS release
-WORKDIR /usr/src/app
-COPY --from=builder /go/bin/product-catalog .
-ENTRYPOINT ["./product-catalog"]
-```
-
 ![Golang Dockerfile](./4-golang-Dockerfile.png)
 
-### **Building & Running the Service**
-#### **Building the Image**
+### **Java-based Microservice (Ad Service)**
+I built an **advertisement service** using Java and Gradle with a **multi-stage Docker build**.
+
+#### **Dockerfile for Java Service**
+![Java Dockerfile](./6-Java-Dockerfile.png)
+
+### **Python-based Microservice (Recommendation Service)**
+I built a **recommendation service** using Python.
+
+#### **Dockerfile for Python Service**
+![Python Dockerfile](./7-python-Dockerfile.png)
+
+### **Re-running Docker Compose**
 ```sh
-docker build -t kirox2023/product-catalog:v1 .
+docker compose up -d
 ```
 
-#### **Running the Container**
-```sh
-docker run -d -p 8080:8080 kirox2023/product-catalog:v1
-```
+#### **Updated Docker Compose Running Services**
+![Docker Compose Update](./8-docker-compose-up.png)
 
-#### **Confirming the Service is Running**
-```sh
-docker ps
-```
+## 🌍 Terraform State Management with S3 & DynamoDB
+I used **Amazon S3** and **DynamoDB** to store and manage the Terraform state files securely.
 
-![Docker Run Working](./5-docker-run-working.png)
+### **Terraform S3 Bucket Configuration**
+![Terraform S3 Bucket](./11-terraform-s3.png)
+
+### **Main Terraform Configuration (`main.tf`)**
+![Main Code Terraform](./12-maincodetf.png)
+
+### **Initializing Terraform with S3 Backend for EKS**
+![Terraform Init with S3](./13-terraform-init-using-s3-backend-eks.png)
+
+### **Terraform Plan for Creating EKS**
+![Terraform Plan Create EKS](./14-terraform-plan-create-eks.png)
+
+### **`kubectl get nodes` Output Before Configuring EKS**
+![kubectl Get Nodes Before Config](./15-kubcetl-get-nodesbeforeconfig.png)
+
+### **Terraform Deployment Completed**
+![Terraform Done](./16-terraform-done.png)
+
+### **AWS CLI Version Verification**
+![AWS CLI Version](./17-awscli.png)
+
+### **`kubectl get nodes` Output After Configuring EKS**
+![kubectl Config Updated](./18-kubectlworkingconfig.png)
+
+### **Creating Kubernetes Service Account for OpenTelemetry**
+![Service Account Creation](./19-createsa.png)
+
+### **Checking Kubernetes Services and Pods**
+![Check Services & Pods](./20-check-svc-and-pods.png)
+
+### **Deploying Ingress Controller & LoadBalancer**
+![Helm Repo Add](./26-helm-repo-add.png)
+
+![LB Controller Installed](./27-lbcontrollerinstalledusinghelm.png)
+
+![Ingress Config](./28-configure-ingress.png)
+
+![Ingress Route](./29-configure-ingressroute.png)
+
+![Ingress Host Mapping](./30-add-tohost-ipaddress.png)
+
+### **Final Hosted Application**
+![Hosted App](./32-localingress.png)
+
+## 🔥 Key Technologies Used
+- **AWS EKS** (Managed Kubernetes Cluster)
+- **Terraform** (Infrastructure as Code)
+- **Kubernetes** (Container Orchestration)
+- **Docker** (Containerization)
+- **Helm** (Kubernetes Package Management)
+- **AWS Load Balancer** (Traffic Management)
+
+## 📝 Summary
+This project demonstrates how I automated **Kubernetes infrastructure provisioning**, **deployed microservices**, and **integrated observability** using best practices. It showcases hands-on experience in **EKS, Terraform, Ingress Controllers, and Observability**, which is highly relevant for **Cloud-Native DevOps roles**.
