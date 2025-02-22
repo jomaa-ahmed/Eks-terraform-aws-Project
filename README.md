@@ -46,7 +46,7 @@ aws eks --region <your-region> update-kubeconfig --name <cluster-name>
 Once the EKS cluster was up and running, I accessed the **OpenTelemetry Demo application**:
 
 ### **Homepage Preview**
-![Homepage](./images/1.png)
+![Homepage](./images/images/1.png)
 
 The homepage of the OpenTelemetry demo application was accessible at:
 ```
@@ -54,7 +54,7 @@ http://<public-ip>:8080
 ```
 
 ### **Product Page Preview**
-![Product Page](./2.png)
+![Product Page](./images/2.png)
 
 ## 🐳 Docker & Deployment
 I containerized the application services using **Docker** and deployed them using **Docker Compose**.
@@ -65,25 +65,25 @@ docker compose up -d
 ```
 
 #### **Docker Compose Running Services**
-![Docker Compose](./3-docker compose up.png)
+![Docker Compose](./images/3-docker compose up.png)
 
 ### **Golang-based Microservice (Product Catalog)**
 I built the backend service using **Golang** and implemented a **multi-stage Docker build** for efficiency.
 
 #### **Dockerfile for Golang Service**
-![Golang Dockerfile](./4-golang-Dockerfile.png)
+![Golang Dockerfile](./images/4-golang-Dockerfile.png)
 
 ### **Java-based Microservice (Ad Service)**
 I built an **advertisement service** using Java and Gradle with a **multi-stage Docker build**.
 
 #### **Dockerfile for Java Service**
-![Java Dockerfile](./6-Java-Dockerfile.png)
+![Java Dockerfile](./images/6-Java-Dockerfile.png)
 
 ### **Python-based Microservice (Recommendation Service)**
 I built a **recommendation service** using Python.
 
 #### **Dockerfile for Python Service**
-![Python Dockerfile](./7-python-Dockerfile.png)
+![Python Dockerfile](./images/7-python-Dockerfile.png)
 
 ### **Re-running Docker Compose**
 ```sh
@@ -91,54 +91,54 @@ docker compose up -d
 ```
 
 #### **Updated Docker Compose Running Services**
-![Docker Compose Update](./8-docker-compose-up.png)
+![Docker Compose Update](./images/8-docker-compose-up.png)
 
 ## 🌍 Terraform State Management with S3 & DynamoDB
 I used **Amazon S3** and **DynamoDB** to store and manage the Terraform state files securely.
 
 ### **Terraform S3 Bucket Configuration**
-![Terraform S3 Bucket](./11-terraform-s3.png)
+![Terraform S3 Bucket](./images/11-terraform-s3.png)
 
 ### **Main Terraform Configuration (`main.tf`)**
-![Main Code Terraform](./12-maincodetf.png)
+![Main Code Terraform](./images/12-maincodetf.png)
 
 ### **Initializing Terraform with S3 Backend for EKS**
-![Terraform Init with S3](./13-terraform-init-using-s3-backend-eks.png)
+![Terraform Init with S3](./images/13-terraform-init-using-s3-backend-eks.png)
 
 ### **Terraform Plan for Creating EKS**
-![Terraform Plan Create EKS](./14-terraform-plan-create-eks.png)
+![Terraform Plan Create EKS](./images/14-terraform-plan-create-eks.png)
 
 ### **`kubectl get nodes` Output Before Configuring EKS**
-![kubectl Get Nodes Before Config](./15-kubcetl-get-nodesbeforeconfig.png)
+![kubectl Get Nodes Before Config](./images/15-kubcetl-get-nodesbeforeconfig.png)
 
 ### **Terraform Deployment Completed**
-![Terraform Done](./16-terraform-done.png)
+![Terraform Done](./images/16-terraform-done.png)
 
 ### **AWS CLI Version Verification**
-![AWS CLI Version](./17-awscli.png)
+![AWS CLI Version](./images/17-awscli.png)
 
 ### **`kubectl get nodes` Output After Configuring EKS**
-![kubectl Config Updated](./18-kubectlworkingconfig.png)
+![kubectl Config Updated](./images/18-kubectlworkingconfig.png)
 
 ### **Creating Kubernetes Service Account for OpenTelemetry**
-![Service Account Creation](./19-createsa.png)
+![Service Account Creation](./images/19-createsa.png)
 
 ### **Checking Kubernetes Services and Pods**
-![Check Services & Pods](./20-check-svc-and-pods.png)
+![Check Services & Pods](./images/20-check-svc-and-pods.png)
 
 ### **Deploying Ingress Controller & LoadBalancer**
-![Helm Repo Add](./26-helm-repo-add.png)
+![Helm Repo Add](./images/26-helm-repo-add.png)
 
-![LB Controller Installed](./27-lbcontrollerinstalledusinghelm.png)
+![LB Controller Installed](./images/27-lbcontrollerinstalledusinghelm.png)
 
-![Ingress Config](./28-configure-ingress.png)
+![Ingress Config](./images/28-configure-ingress.png)
 
-![Ingress Route](./29-configure-ingressroute.png)
+![Ingress Route](./images/29-configure-ingressroute.png)
 
-![Ingress Host Mapping](./30-add-tohost-ipaddress.png)
+![Ingress Host Mapping](./images/30-add-tohost-ipaddress.png)
 
 ### **Final Hosted Application**
-![Hosted App](./32-localingress.png)
+![Hosted App](./images/32-localingress.png)
 
 ## 🔥 Key Technologies Used
 - **AWS EKS** (Managed Kubernetes Cluster)
