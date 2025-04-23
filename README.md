@@ -1,4 +1,4 @@
-# EKS Terraform AWS Project
+# EKS Terraform AWS Project DEMO
 
 ## 📌 Project Overview
 I designed this project to **automate the deployment of an Amazon Elastic Kubernetes Service (EKS) cluster** using **Terraform**. I also deployed an **OpenTelemetry demo application**, leveraging **Docker and Kubernetes** for a scalable, monitored microservices environment.
